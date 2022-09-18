@@ -30,7 +30,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('/contact', ContactController::class);
+    Route::resource('/contact', ContactController::class)->except('show');
 });
 
 require __DIR__ . '/auth.php';
